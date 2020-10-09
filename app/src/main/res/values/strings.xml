@@ -9,4 +9,9 @@
     <string name="c_password">password</string>
     <string name="add_new">ADD NEW</string>
     <string name="existing">EXISTING</string>
+    <string name="title_home">Gallery</string>
+    <string name="title_dashboard">Categories</string>
+    <string name="search">Search</string>
+    <string name="cart">My Bag</string>
+    <string name="my_profile">More</string>
 </resources>
