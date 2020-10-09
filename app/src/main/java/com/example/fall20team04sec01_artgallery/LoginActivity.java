@@ -6,15 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
+    TextView registerTV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_login);
         loginBtn = (Button) findViewById(R.id.login_button);
+        registerTV= findViewById(R.id.register);
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
@@ -22,7 +25,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                Intent loginIntent = new Intent(LoginActivity.this, HomeActivity.class);
                startActivity(loginIntent);
+            }
+        });
 
+        registerTV.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent signupIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(signupIntent);
             }
         });
     }

@@ -14,6 +14,7 @@
         <activity android:name=".item_billing_address" />
         <activity android:name=".my_cart" />
         <activity android:name=".HomeActivity" />
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".add_new_address" />
         <activity android:name=".AddArtist"></activity>
         <activity android:name=".MainActivity"></activity>

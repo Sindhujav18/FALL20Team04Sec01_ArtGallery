@@ -25,6 +25,11 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.navigation_home:
                         Intent ini = new Intent(HomeActivity.this, HomeActivity.class);
                         startActivity(ini);
+                        break;
+                    case R.id.navigation_cart:
+                        Intent cintent = new Intent(HomeActivity.this, my_cart.class);
+                        startActivity(cintent);
+                        break;
                 }
                 return true;
             }
