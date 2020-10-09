@@ -7,4 +7,6 @@
     <string name="name">name</string>
     <string name="phone_number">phone number</string>
     <string name="c_password">password</string>
+    <string name="add_new">ADD NEW</string>
+    <string name="existing">EXISTING</string>
 </resources>
