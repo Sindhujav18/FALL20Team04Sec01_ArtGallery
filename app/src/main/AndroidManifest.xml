@@ -9,12 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<<<<<<< HEAD
+
         <activity android:name=".add_new_address"></activity>
-=======
         <activity android:name=".AddArtist"></activity>
->>>>>>> b3127a236da5602f4b810bf7c15326b1df637fa7
         <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
