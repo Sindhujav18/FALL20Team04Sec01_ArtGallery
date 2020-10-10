@@ -14,58 +14,56 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        art1= (Button)findViewById(R.id.paint1);
-        art2= (Button)findViewById(R.id.paint2);
-        art3= (Button)findViewById(R.id.paint3);
-        art4= (Button)findViewById(R.id.paint4);
-        art5= (Button)findViewById(R.id.paint5);
-        art6= (Button)findViewById(R.id.paint6);
+        art1= findViewById(R.id.paint1);
+        art2= findViewById(R.id.paint2);
+        art3= findViewById(R.id.paint3);
+        art4= findViewById(R.id.paint4);
+        art5= findViewById(R.id.paint5);
+        art6= findViewById(R.id.paint6);
 
         art1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inpaint1= new Intent(GalleryActivity.this, AddToBagActivity.class);
-                startActivity(inpaint1);
+                Intent firstIntent= new Intent(GalleryActivity.this, AddToBagActivity.class);
+                startActivity(firstIntent);
             }
         });
-
         art2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inpaint2= new Intent(GalleryActivity.this, AddToBagActivity.class);
-                startActivity(inpaint2);
+                Intent secondIntent= new Intent(GalleryActivity.this, AddToBagActivity.class);
+                startActivity(secondIntent);
             }
         });
 
         art3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inpaint3= new Intent(GalleryActivity.this, AddToBagActivity.class);
-                startActivity(inpaint3);
+                Intent thirdIntent= new Intent(GalleryActivity.this, AddToBagActivity.class);
+                startActivity(thirdIntent);
             }
         });
 
         art4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inpaint4= new Intent(GalleryActivity.this, AddToBagActivity.class);
-                startActivity(inpaint4);
+                Intent fourthIntent= new Intent(GalleryActivity.this, AddToBagActivity.class);
+                startActivity(fourthIntent);
             }
         });
-
         art5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inpaint5= new Intent(GalleryActivity.this, AddToBagActivity.class);
-                startActivity(inpaint5);
+                Intent fifthIntent= new Intent(GalleryActivity.this, AddToBagActivity.class);
+                startActivity(fifthIntent);
             }
         });
 
         art6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inpaint6= new Intent(GalleryActivity.this, AddToBagActivity.class);
-                startActivity(inpaint6);
+                Intent sixthIntent= new Intent(GalleryActivity.this, AddToBagActivity.class);
+                startActivity(sixthIntent);
             }
         });
 
