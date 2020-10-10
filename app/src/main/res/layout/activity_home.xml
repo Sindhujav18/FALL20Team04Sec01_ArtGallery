@@ -40,7 +40,7 @@
         android:id="@+id/asiaBtn"
         android:layout_width="247dp"
         android:layout_height="123dp"
-        android:text="Asia Gallary"
+        android:text="Asia Gallery"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,13 +52,27 @@
         android:id="@+id/europeBtn"
         android:layout_width="247dp"
         android:layout_height="123dp"
-        android:text="Europe Gallary"
+        android:text="Europe Gallery"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.38" />
+
+    <Button
+        android:id="@+id/africaBtn"
+        android:layout_width="247dp"
+        android:layout_height="123dp"
+        android:text="AFRICA GALLERY"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.651" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
