@@ -30,6 +30,14 @@ public class HomeActivity extends AppCompatActivity {
                         Intent cintent = new Intent(HomeActivity.this, my_cart.class);
                         startActivity(cintent);
                         break;
+                    case R.id.navigation_dashboard:
+                        Intent categoryIntent = new Intent(HomeActivity.this, Categories.class);
+                        startActivity(categoryIntent);
+                        break;
+                    case R.id.navigation_search:
+                        Intent searchIntent = new Intent(HomeActivity.this, SearchActivity.class);
+                        startActivity(searchIntent);
+                        break;
                 }
                 return true;
             }

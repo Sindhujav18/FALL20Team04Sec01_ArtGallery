@@ -20,6 +20,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".add_new_address" />
         <activity android:name=".AddArtist" />
+        <activity android:name=".AdminLogin" />
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>

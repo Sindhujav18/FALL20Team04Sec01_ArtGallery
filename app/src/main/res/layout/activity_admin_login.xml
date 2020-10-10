@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_ag"
     android:padding="@dimen/activity_vertical_margin"
-    tools:context=".LoginActivity">
+    tools:context=".AdminLogin">
 
     <LinearLayout
         android:id="@+id/email_view"
@@ -29,7 +29,7 @@
             android:background="#FFFFFF"
             android:drawableLeft="@drawable/ic_profile_black_24dp"
             android:drawablePadding="@dimen/activity_vertical_margin"
-            android:hint="@string/email_address"
+            android:hint="@string/AdminID"
             android:inputType="textEmailAddress"
             android:tooltipText="@string/email_address" />
 
@@ -90,32 +90,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forgot_password" />
 
-    <TextView
-        android:id="@+id/register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
-        android:gravity="center"
-        android:text="New to Art Gallery? Create an account"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="#3d87e2"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/admin_login"
-        android:layout_width="114dp"
-        android:layout_height="25dp"
-        android:text="Admin Login?"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.577" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

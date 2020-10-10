@@ -18,4 +18,6 @@
     <string name="artists">Artists</string>
     <string name="cart">My Bag</string>
     <string name="my_profile">More</string>
+    <string name="admin_id">Admin id</string>
+    <string name="AdminID">adminID</string>
 </resources>
