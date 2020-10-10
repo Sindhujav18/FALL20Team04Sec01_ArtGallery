@@ -12,9 +12,11 @@
         <activity android:name=".AdminDashboardActivity"></activity>
         <activity android:name=".SearchActivity" />
         <activity android:name=".Categories" />
+        <activity android:name=".AddToBagActivity" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".user_details" />
         <activity android:name=".upload_art" />
+        <activity android:name=".GalleryActivity" />
         <activity android:name=".item_billing_address" />
         <activity android:name=".my_cart" />
         <activity android:name=".HomeActivity" />
