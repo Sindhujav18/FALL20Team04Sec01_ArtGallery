@@ -12,6 +12,10 @@
     <string name="title_home">Gallery</string>
     <string name="title_dashboard">Categories</string>
     <string name="search">Search</string>
+    <string name="country">Country</string>
+    <string name="gallery">Gallery</string>
+    <string name="artist">Artist</string>
+    <string name="artists">Artists</string>
     <string name="cart">My Bag</string>
     <string name="my_profile">More</string>
 </resources>

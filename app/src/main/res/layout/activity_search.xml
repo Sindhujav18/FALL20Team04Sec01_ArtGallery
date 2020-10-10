@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/margin_20">
+
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints="Your Search text"
+        android:iconifiedByDefault="false"
+        android:queryHint="Your Search text">
+
+        <requestFocus />
+    </SearchView>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:visibility="invisible" />
+
+    <RadioGroup
+        android:id="@+id/radio_action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:checkedButton="@+id/country_radio"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginRight="@dimen/margin_20"
+        android:orientation="horizontal"
+        android:weightSum="15">
+
+    <RadioButton
+        android:id="@+id/country_radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="05"
+        android:text="@string/country"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_32"
+        android:layout_marginRight="@dimen/margin_32"
+        android:layout_weight="05"
+        android:text="@string/gallery"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="05"
+            android:text="@string/artist"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radio_action"
+        android:layout_marginLeft="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_20"
+        android:clipToPadding="false"
+        android:visibility="gone"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/no_arts_available"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:text="No arts available \n Please check later"
+        android:layout_height="wrap_content"
+        android:textColor="@color/price_color"
+        android:textStyle="bold"
+
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+
+</RelativeLayout>
