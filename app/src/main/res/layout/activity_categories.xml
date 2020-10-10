@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_ag"
+    tools:context=".Categories">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:clickable="true"
+        android:elevation="0dp"
+        android:foreground="?attr/selectableItemBackground"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="0dp">
+
+    <RelativeLayout
+        android:id="@+id/newly_added_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <VideoView
+        android:id="@+id/thumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_height"
+        android:scaleType="fitXY" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/thumbnail"
+        android:layout_alignParentLeft="true"
+        android:lines="1"
+        android:padding="@dimen/margin_10"
+        android:text="NEWLY ADDED"
+        android:textAppearance="?android:textAppearanceListItem"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/thumbnail"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/title"
+            android:gravity="end"
+            android:padding="@dimen/margin_10"
+
+            android:textAppearance="?android:textAppearanceListItem"
+            android:textColor="@color/colorPrimaryDark"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:clickable="true"
+        android:elevation="0dp"
+        android:foreground="?attr/selectableItemBackground"
+        card_view:cardCornerRadius="5dp"
+        card_view:cardElevation="0dp">
+
+    <RelativeLayout
+        android:id="@+id/artist_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/thumbnail_artist"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_height"
+        android:background="@drawable/artistandart"
+        android:scaleType="fitXY" />
+
+    <TextView
+        android:id="@+id/title_artist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/thumbnail_artist"
+        android:layout_alignParentLeft="true"
+        android:lines="1"
+        android:padding="@dimen/margin_10"
+        android:text="BY ARTIST"
+        android:textAppearance="?android:textAppearanceListItem"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/price_artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/thumbnail_artist"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/title_artist"
+            android:gravity="end"
+            android:padding="@dimen/margin_10"
+            android:textAppearance="?android:textAppearanceListItem"
+            android:textColor="@color/colorPrimaryDark"
+            android:visibility="gone" />
+
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/thumbnail"
+            android:layout_alignParentLeft="true"
+            android:lines="1"
+            android:padding="@dimen/margin_10"
+            android:text="UPCOMING EVENTS"
+            android:textAppearance="?android:textAppearanceListItem"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>
