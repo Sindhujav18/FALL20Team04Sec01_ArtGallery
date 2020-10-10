@@ -75,7 +75,6 @@
                     android:orientation="horizontal"
                     android:weightSum="15">
 
-
                     <ImageView
                         android:id="@+id/upload_image"
                         android:layout_width="100dp"
