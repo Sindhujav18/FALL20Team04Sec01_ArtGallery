@@ -19,7 +19,7 @@
         <activity android:name=".upload_art" />
         <activity android:name=".GalleryFragment" />
         <activity android:name=".item_billing_address" />
-        <activity android:name=".my_cart" />
+        <activity android:name=".MyCartFragment" />
         <activity android:name=".HomeFragment" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Addresses" />
