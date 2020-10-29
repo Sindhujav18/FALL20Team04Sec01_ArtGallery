@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -72,5 +73,51 @@ public class MainActivity extends AppCompatActivity implements GalleryFragment.O
         } else {
             super.onBackPressed();
         }
+    }
+
+    public void onNavigationRequested(int fragmentLayoutId) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        Fragment targetFragment = HomeFragment.newInstance();
+
+        switch (fragmentLayoutId){
+            case R.layout.activity_gallery:
+                targetFragment = GalleryFragment.newInstance();
+                break;
+            case  R.layout.activity_add_to_bag:
+                targetFragment = AddToBagFragment.newInstance();
+                break;
+
+            case  R.layout.activity_my_cart:
+                targetFragment = MyCartFragment.newInstance();
+                break;
+            case  R.layout.activity_payment:
+                targetFragment = PaymentFragment.newInstance();
+                break;
+            case R.layout.fragment_more_screen_fragment:
+                targetFragment = MoreScreenFragment.newInstance();
+                break;
+            case R.layout.activity_user_details:
+                targetFragment = Profile.newInstance();
+                break;
+            case R.layout.activity_forgot_password:
+                targetFragment = Password.newInstance();
+                break;
+            case R.layout.activity_item_billing_address:
+                targetFragment = Addresses.newInstance();
+                break;
+            case R.layout.activity_register:
+                targetFragment = Favourities.newInstance();
+                break;
+            case R.layout.fragment_login:
+                targetFragment = LogOut.newInstance();
+                break;
+
+        }
+
+
+        fragmentTransaction.add(R.id.main_frame, targetFragment).addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }
