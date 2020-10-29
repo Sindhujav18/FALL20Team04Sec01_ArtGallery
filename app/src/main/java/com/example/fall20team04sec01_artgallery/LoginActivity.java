@@ -1,6 +1,7 @@
 package com.example.fall20team04sec01_artgallery;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fall20team04sec01_artgallery.RoomDatabase.MyDatabase;
 import com.example.fall20team04sec01_artgallery.RoomDatabase.UserModel;
 
 import java.util.List;
