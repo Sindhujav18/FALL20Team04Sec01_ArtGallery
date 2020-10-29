@@ -2,7 +2,9 @@ package com.example.fall20team04sec01_artgallery;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -27,4 +29,48 @@ public class MainActivity extends AppCompatActivity implements GalleryFragment.O
         fragmentTransaction.commit();
     }
 
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    fragmentTransaction.replace(R.id.main_frame, HomeFragment.newInstance());
+                    fragmentTransaction.commit();
+                    return true;
+                case R.id.navigation_search:
+                    fragmentTransaction.replace(R.id.main_frame, SearchFragment.newInstance());
+                    fragmentTransaction.commit();
+                    return true;
+                case R.id.navigation_dashboard:
+                    fragmentTransaction.replace(R.id.main_frame, CategoryFragment.newInstance());
+                    fragmentTransaction.commit();
+                    return true;
+                case R.id.navigation_cart:
+                    fragmentTransaction.replace(R.id.main_frame, MyCartFragment.newInstance());
+                    fragmentTransaction.commit();
+                    return true;
+                case R.id.navigation_profile:
+                    fragmentTransaction.replace(R.id.main_frame, MoreScreenFragment.newInstance());
+                    fragmentTransaction.commit();
+
+            }
+            return false;
+        }
+    };
+
+    @Override
+    public void onBackPressed(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (fragmentManager.getBackStackEntryCount() > 0) {
+            fragmentManager.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
