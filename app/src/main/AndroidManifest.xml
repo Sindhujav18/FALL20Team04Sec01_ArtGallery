@@ -17,7 +17,7 @@
         <activity android:name=".user_details" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".upload_art" />
-        <activity android:name=".GalleryActivity" />
+        <activity android:name=".GalleryFragment" />
         <activity android:name=".item_billing_address" />
         <activity android:name=".my_cart" />
         <activity android:name=".HomeActivity" />

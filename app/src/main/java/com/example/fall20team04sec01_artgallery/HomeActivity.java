@@ -8,10 +8,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Gallery;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -53,21 +51,21 @@ public class HomeActivity extends AppCompatActivity {
        asiaGallary.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               Intent galleryIntent= new Intent(HomeActivity.this, GalleryActivity.class);
+               Intent galleryIntent= new Intent(HomeActivity.this, GalleryFragment.class);
                startActivity(galleryIntent);
            }
        });
         africaGallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent galleryIntent= new Intent(HomeActivity.this, GalleryActivity.class);
+                Intent galleryIntent= new Intent(HomeActivity.this, GalleryFragment.class);
                 startActivity(galleryIntent);
             }
         });
         europeGallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent galleryIntent= new Intent(HomeActivity.this, GalleryActivity.class);
+                Intent galleryIntent= new Intent(HomeActivity.this, GalleryFragment.class);
                 startActivity(galleryIntent);
             }
         });
