@@ -1,6 +1,6 @@
 package com.example.fall20team04sec01_artgallery;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 
