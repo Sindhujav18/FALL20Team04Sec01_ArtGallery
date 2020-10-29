@@ -12,7 +12,7 @@
         <activity android:name=".AdminDashboardActivity"></activity>
         <activity android:name=".SearchActivity" />
         <activity android:name=".Categories" />
-        <activity android:name=".AddToBagActivity" />
+        <activity android:name=".AddToBagFragment" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".user_details" />
         <activity android:name=".PaymentActivity" />
