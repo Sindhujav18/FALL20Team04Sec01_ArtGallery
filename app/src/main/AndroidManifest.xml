@@ -22,7 +22,7 @@
         <activity android:name=".my_cart" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".add_new_address" />
+        <activity android:name=".Addresses" />
         <activity android:name=".AddArtist" />
         <activity android:name=".AdminLogin" />
         <activity android:name=".MainActivity" />
