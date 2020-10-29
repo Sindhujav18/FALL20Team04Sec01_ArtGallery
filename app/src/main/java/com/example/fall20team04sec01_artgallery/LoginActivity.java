@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     TextView registerTV,forgotpasswordTV, adminloginTV;
+
+    EditText email,password;
+    MyDatabase myDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,13 @@ public class LoginActivity extends AppCompatActivity {
         registerTV= findViewById(R.id.register);
         forgotpasswordTV= findViewById(R.id.forgot_password);
         adminloginTV= findViewById(R.id.admin_login);
+        email = findViewById(R.id.email_edit_text);
+        password= findViewById(R.id.password_edit_text);
+
+        final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+
+        myDatabase = Room.databaseBuilder(LoginActivity.this,MyDatabase.class,"UserDb")
+                .allowMainThreadQueries().build();
 
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
