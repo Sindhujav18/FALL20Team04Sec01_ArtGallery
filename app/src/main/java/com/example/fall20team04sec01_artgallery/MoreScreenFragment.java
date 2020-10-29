@@ -1,6 +1,7 @@
 package com.example.fall20team04sec01_artgallery;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 public class MoreScreenFragment extends Fragment {
@@ -104,6 +106,21 @@ public class MoreScreenFragment extends Fragment {
         });
 
         return view;
+    }
+
+
+    public interface OnNavigationRequestedListener {
+        public void onNavigationRequested(int fragmentLayoutId);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (OnNavigationRequestedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnArticleSelectedListener");
+        }
     }
 
 }
