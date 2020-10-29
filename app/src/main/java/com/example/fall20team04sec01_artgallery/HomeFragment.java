@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -36,58 +39,49 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        bottomnavigationView= findViewById(R.id.navigation);
-        asiaGallary= findViewById(R.id.asiaBtn);
-        africaGallary= findViewById(R.id.africaBtn);
-        europeGallary= findViewById(R.id.europeBtn);
-        bottomnavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View inflated =  inflater.inflate(R.layout.activity_home, container, false);
+
+        asiaGallary = inflated.findViewById(R.id.asiaBtn);
+        africaGallary = inflated.findViewById(R.id.africaBtn);
+        europeGallary = inflated.findViewById(R.id.europeBtn);
+
+
+        asiaGallary.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        Intent ini = new Intent(HomeFragment.this, HomeFragment.class);
-                        startActivity(ini);
-                        break;
-                    case R.id.navigation_cart:
-                        Intent cintent = new Intent(HomeFragment.this, my_cart.class);
-                        startActivity(cintent);
-                        break;
-                    case R.id.navigation_dashboard:
-                        Intent categoryIntent = new Intent(HomeFragment.this, CategoryFragment.class);
-                        startActivity(categoryIntent);
-                        break;
-                    case R.id.navigation_search:
-                        Intent searchIntent = new Intent(HomeFragment.this, SearchActivity.class);
-                        startActivity(searchIntent);
-                        break;
-                }
-                return true;
+            public void onClick(View view) {
+                listener.onNavigationRequested(R.layout.activity_gallery);
             }
         });
-
-       asiaGallary.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent galleryIntent= new Intent(HomeFragment.this, GalleryFragment.class);
-               startActivity(galleryIntent);
-           }
-       });
         africaGallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent galleryIntent= new Intent(HomeFragment.this, GalleryFragment.class);
-                startActivity(galleryIntent);
+                listener.onNavigationRequested(R.layout.activity_gallery);
             }
         });
         europeGallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent galleryIntent= new Intent(HomeFragment.this, GalleryFragment.class);
-                startActivity(galleryIntent);
+                listener.onNavigationRequested(R.layout.activity_gallery);
             }
         });
+
+        return inflated;
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (OnNavigationRequestedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnArticleSelectedListener");
+        }
+    }
+
+    public interface OnNavigationRequestedListener {
+        public void onNavigationRequested(int fragmentLayoutId);
     }
 }
