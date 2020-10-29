@@ -17,5 +17,11 @@ public interface DAO {
     @Query("Select * from UserModel")
     List<UserModel> getUserModel();
 
+    @Query("Update UserModel set phoneNumber = :phone where name = :userName")
+    void updateUser(String phone, String userName);
+
+    @Query("Select * from UserModel where email=:userEnterEmail AND password=:userEnterPassword")
+    List<UserModel> getInformationAndValidate(String userEnterEmail, String userEnterPassword);
+
 
 }
