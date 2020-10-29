@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_ag"
-    tools:context=".PaymentActivity">
+    tools:context=".PaymentFragment">
 
     <TextView
         android:id="@+id/address"

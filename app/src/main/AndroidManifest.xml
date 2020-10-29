@@ -15,7 +15,7 @@
         <activity android:name=".AddToBagFragment" />
         <activity android:name=".ForgotPassword" />
         <activity android:name=".user_details" />
-        <activity android:name=".PaymentActivity" />
+        <activity android:name=".PaymentFragment" />
         <activity android:name=".upload_art" />
         <activity android:name=".GalleryFragment" />
         <activity android:name=".item_billing_address" />
