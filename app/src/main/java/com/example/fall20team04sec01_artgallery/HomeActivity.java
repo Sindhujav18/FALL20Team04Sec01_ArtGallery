@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(cintent);
                         break;
                     case R.id.navigation_dashboard:
-                        Intent categoryIntent = new Intent(HomeActivity.this, Categories.class);
+                        Intent categoryIntent = new Intent(HomeActivity.this, CategoryFragment.class);
                         startActivity(categoryIntent);
                         break;
                     case R.id.navigation_search:
