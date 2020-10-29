@@ -13,4 +13,9 @@ public interface DAO {
 
     @Insert(onConflict =  OnConflictStrategy.FAIL)
     public Long UserInsertion(UserModel userModel);
+
+    @Query("Select * from UserModel")
+    List<UserModel> getUserModel();
+
+
 }
