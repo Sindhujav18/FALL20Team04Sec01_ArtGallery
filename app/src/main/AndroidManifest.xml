@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AdminDashboardActivity"></activity>
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchFragment" />
         <activity android:name=".CategoryFragment" />
         <activity android:name=".AddToBagFragment" />
         <activity android:name=".ForgotPassword" />
