@@ -13,7 +13,6 @@
         <activity android:name=".SearchFragment" />
         <activity android:name=".CategoryFragment" />
         <activity android:name=".AddToBagFragment" />
-        <activity android:name=".ForgotPassword" />
         <activity android:name=".PaymentFragment" />
         <activity android:name=".upload_art" />
         <activity android:name=".GalleryFragment" />
