@@ -54,5 +54,39 @@ public class SelectArtist extends AppCompatActivity {
             }
         });
     }
+    public void setList()
+    {
+        try{
+
+            List<ArtistModel> artists;
+            artists = myDatabase.dao().getAllArtist();
+
+            if(artists.size()<1)
+            {
+                Toast.makeText(getApplicationContext(),"No artist available",Toast.LENGTH_LONG).show();
+                finish();
+            }
+            else
+            {
+                for (ArtistModel artist:artists) {
+                    name.add(artist.getName());
+                    email.add(artist.getEmail());
+                    country.add(artist.getCountry());
+                }
+
+                ArtistListAdapter adapter=new ArtistListAdapter(this,name ,email,country);
+                list.setAdapter(adapter);
+
+            }
+        }
+        catch (Exception database){
+
+            Log.e("Error :",database.getMessage());
+        }
+    }
+
+
+
+}
 
 
