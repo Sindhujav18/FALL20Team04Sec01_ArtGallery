@@ -23,5 +23,8 @@ public interface DAO {
     @Query("Select * from UserModel where email=:userEnterEmail AND password=:userEnterPassword")
     List<UserModel> getInformationAndValidate(String userEnterEmail, String userEnterPassword);
 
-
+    @Query("Select * from ArtistModel")
+    public List<ArtistModel> getAllArtist();
+    @Query("Select * from UserModel where email=:userEnterEmail")
+    List<UserModel> checkEmail(String userEnterEmail);
 }
