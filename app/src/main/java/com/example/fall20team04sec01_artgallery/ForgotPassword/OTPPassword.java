@@ -1,5 +1,10 @@
 package com.example.fall20team04sec01_artgallery.ForgotPassword;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.room.Room;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -10,15 +15,16 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-
+import com.example.fall20team04sec01_artgallery.MyValidator;
 import com.example.fall20team04sec01_artgallery.R;
+import com.example.fall20team04sec01_artgallery.RoomDatabase.AdminCredentials;
 import com.example.fall20team04sec01_artgallery.RoomDatabase.MyDatabase;
 
 import java.util.Random;
 
-public class OTPPassword {
+import java.util.Random;
+
+public class OTPPassword extends AppCompatActivity {
 
     public MyValidator validator;
     LinearLayout otpLayout,passwordLayout;
@@ -120,4 +126,3 @@ public class OTPPassword {
 
     }
 }
-
