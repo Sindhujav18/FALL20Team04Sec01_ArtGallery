@@ -24,5 +24,35 @@ public class SelectArtist extends AppCompatActivity {
     MyDatabase myDatabase;
     ArrayList<String> name;
     ArrayList<String> email;
-    ArrayList<String> country;}
+    ArrayList<String> country;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_select_artist);
+        list=(ListView)findViewById(R.id.ArtistList);
+
+        myDatabase = Room.databaseBuilder(this, MyDatabase.class,"UserDb")
+                .allowMainThreadQueries().build();
+
+        name = new ArrayList<String>();
+        email = new ArrayList<String>();
+        country =new ArrayList<String>();
+
+        setList();
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent resultIntent = new Intent();
+                // TODO Add extras or a data URI to this intent as appropriate.
+                resultIntent.putExtra("Name", name.get(position));
+                resultIntent.putExtra("Email",email.get(position));
+                setResult(RESULT_OK, resultIntent);
+                finish();
+            }
+        });
+    }
+
 
