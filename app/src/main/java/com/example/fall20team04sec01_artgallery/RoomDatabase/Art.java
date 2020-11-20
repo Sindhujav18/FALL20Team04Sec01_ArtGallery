@@ -26,4 +26,67 @@ public class Art {
         this.region = region;
         this.imagesPath = imagesPath;
     }
+    public String getArtistEmail() {
+        return artistEmail;
+    }
+
+    public void setArtistEmail(String artistEmail) {
+        this.artistEmail = artistEmail;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDimensions() {
+        return dimensions;
+    }
+
+    public void setDimensions(String dimensions) {
+        this.dimensions = dimensions;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public ArrayList<String> getImagesPath() {
+        return imagesPath;
+    }
+
+    public void setImagesPath(ArrayList<String> imagesPath) {
+        this.imagesPath = imagesPath;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
