@@ -37,5 +37,54 @@ public class ArtListRecyclerViewAdapter extends RecyclerView.Adapter<ArtListRecy
         public ImageView imageView;
         public RelativeLayout relativeLayout;
         Art item;
+        public ViewHolder(View v) {
 
+            super(v);
+
+            v.setOnClickListener(this);
+            textView = (TextView) v.findViewById(R.id.myText);
+            imageView = (ImageView) v.findViewById(R.id.myImage);
+
+        }
+
+        public void setData(Art item) {
+            this.item = item;
+
+            Log.e("Data set : ",item.getName()+""+Uri.parse(item.getImagesPath().get(0)));
+            textView.setText(item.getName());
+            imageView.setImageURI(Uri.parse(item.getImagesPath().get(0)));
+
+        }
+
+
+        @Override
+        public void onClick(View view) {
+            if (mListener != null) {
+                mListener.onItemClick(item);
+            }
+        }
+    }
+
+    @Override
+    public ArtListRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(mContext).inflate(R.layout.recycler_view_item, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder Vholder, int position) {
+        Vholder.setData(mValues.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+
+        return mValues.size();
+    }
+
+    public interface ItemListener {
+        void onItemClick(Art item);
+    }
+}
 
