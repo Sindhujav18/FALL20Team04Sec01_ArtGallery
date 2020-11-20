@@ -18,3 +18,26 @@ public class FavouriteModel {
 
     @ColumnInfo(name = "userEmailId")
     String userEmailId;
+
+    public FavouriteModel(Integer artId, String userEmailId){
+        this.artId = artId;
+        this.userEmailId = userEmailId;
+    }
+
+    public Integer getArtId() {
+        return artId;
+    }
+
+    public String getUserEmailId() {
+        return userEmailId;
+    }
+
+    public void setArtId(Integer artId) {
+        this.artId = artId;
+    }
+
+
+    public void setUserEmailId(String userEmailId) {
+        this.userEmailId = userEmailId;
+    }
+}
