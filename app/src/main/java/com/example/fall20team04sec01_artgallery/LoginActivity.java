@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.fall20team04sec01_artgallery.ForgotPassword.ForgotPassword;
 import com.example.fall20team04sec01_artgallery.RoomDatabase.MyDatabase;
 import com.example.fall20team04sec01_artgallery.RoomDatabase.UserModel;
 
