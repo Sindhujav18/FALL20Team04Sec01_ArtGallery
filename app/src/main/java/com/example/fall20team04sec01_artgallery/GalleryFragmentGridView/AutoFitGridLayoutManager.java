@@ -26,3 +26,21 @@ public class AutoFitGridLayoutManager extends GridLayoutManager {
             columnWidth = newColumnWidth;
             columnWidthChanged = true;
         }
+    }
+
+    @Override
+    public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+        if (columnWidthChanged && columnWidth > 0) {
+            int totalSpace;
+            if (getOrientation() == VERTICAL) {
+                totalSpace = getWidth() - getPaddingRight() - getPaddingLeft();
+            } else {
+                totalSpace = getHeight() - getPaddingTop() - getPaddingBottom();
+            }
+            int spanCount = Math.max(1, totalSpace / columnWidth);
+            setSpanCount(spanCount);
+            columnWidthChanged = false;
+        }
+        super.onLayoutChildren(recycler, state);
+    }
+}
