@@ -21,3 +21,34 @@ public class PurchaseModel {
 
     @ColumnInfo(name = "quantity")
     Integer quantity;
+
+    public PurchaseModel(Integer artId, String userEmailId){
+        this.artId = artId;
+        this.userEmailId = userEmailId;
+        this.quantity = 1;
+    }
+
+    public Integer getArtId() {
+        return artId;
+    }
+
+    public String getUserEmailId() {
+        return userEmailId;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setArtId(Integer artId) {
+        this.artId = artId;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public void setUserEmailId(String userEmailId) {
+        this.userEmailId = userEmailId;
+    }
+}
