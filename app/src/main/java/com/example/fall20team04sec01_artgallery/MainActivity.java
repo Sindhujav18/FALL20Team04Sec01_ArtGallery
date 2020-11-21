@@ -80,10 +80,7 @@ public class MainActivity extends AppCompatActivity implements GalleryFragment.O
         }
     }
 
-   // Check your app on mobile phone. its hving zero percent charging please wait for two minutes
-        //Send this apk to me.ok
-    //are you checking the app from your mobile?yes : okay try to upload the are and buy it
-    // one more thing are the login are working fine?Can we replace the project
+
 
     public void onNavigationRequested(int fragmentLayoutId) {
         FragmentManager fragmentManager = getSupportFragmentManager();
