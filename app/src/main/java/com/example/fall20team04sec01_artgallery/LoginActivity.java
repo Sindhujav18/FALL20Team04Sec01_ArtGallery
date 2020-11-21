@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fall20team04sec01_artgallery.ForgotPassword.ForgotPassword;
+import com.example.fall20team04sec01_artgallery.RoomDatabase.AdminCredentials;
 import com.example.fall20team04sec01_artgallery.RoomDatabase.MyDatabase;
 import com.example.fall20team04sec01_artgallery.RoomDatabase.UserModel;
 
@@ -40,25 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         myDatabase = Room.databaseBuilder(LoginActivity.this,MyDatabase.class,"UserDb")
                 .allowMainThreadQueries().build();
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(email.getText().toString().trim().matches(emailPattern)) {
-
-                    List<UserModel> user = myDatabase.dao().getInformationAndValidate(email.getText().toString(), password.getText().toString());
-
-                    if (user.size() < 1)
-                        Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_LONG).show();
-                    else {
-                        Intent loginIntent = new Intent(LoginActivity.this,  MainActivity.class);
-                        startActivity(loginIntent);
-                    }
-                }
-                else
-                    Toast.makeText(getApplicationContext(),"Please enter valid email address",Toast.LENGTH_LONG).show();
-            }
-        });
+        adminInsertion();
 
         registerTV.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -67,13 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(signupIntent);
             }
         });
-        forgotpasswordTV.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent resetIntent = new Intent(LoginActivity.this, ForgotPassword.class);
-                startActivity(resetIntent);
-            }
-        });
+
         adminloginTV.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -83,5 +61,54 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if(email.getText().toString().trim().matches(emailPattern)) {
+
+                    List<UserModel> user = myDatabase.dao().getInformationAndValidate(email.getText().toString(), password.getText().toString());
+
+                    if (user.size() < 1)
+                        Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_LONG).show();
+
+                    else {
+                        UserState.setUser(user.get(0));
+                        Intent loginIntent = new Intent(LoginActivity.this,  MainActivity.class);
+                        startActivity(loginIntent);
+                    }
+                }
+                else
+                    Toast.makeText(getApplicationContext(),"Please enter valid email address",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        forgotpasswordTV.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent resetIntent = new Intent(LoginActivity.this, ForgotPassword.class);
+                startActivity(resetIntent);
+            }
+        });
+
+    }
+
+    public void adminInsertion()
+    {
+        try {
+
+            if(myDatabase.dao().getAdmin().size()<=0) {
+                AdminCredentials adminCredentials = new AdminCredentials("email@gmail.com", "1234567");
+                Long message = myDatabase.dao().adminInsert(adminCredentials);
+                Log.e("DB message : ", message + "");
+
+            }
+        }
+        catch (Exception database){
+
+            Toast.makeText(getApplicationContext(),database.getMessage(),Toast.LENGTH_LONG).show();
+
+        }
     }
 }
