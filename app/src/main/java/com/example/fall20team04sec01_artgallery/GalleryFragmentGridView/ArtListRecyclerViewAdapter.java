@@ -37,6 +37,7 @@ public class ArtListRecyclerViewAdapter extends RecyclerView.Adapter<ArtListRecy
         public ImageView imageView;
         public RelativeLayout relativeLayout;
         Art item;
+
         public ViewHolder(View v) {
 
             super(v);
@@ -51,7 +52,7 @@ public class ArtListRecyclerViewAdapter extends RecyclerView.Adapter<ArtListRecy
             this.item = item;
 
             Log.e("Data set : ",item.getName()+""+Uri.parse(item.getImagesPath().get(0)));
-            textView.setText(item.getName());
+            textView.setText(item.getName().toUpperCase());
             imageView.setImageURI(Uri.parse(item.getImagesPath().get(0)));
 
         }
@@ -87,4 +88,3 @@ public class ArtListRecyclerViewAdapter extends RecyclerView.Adapter<ArtListRecy
         void onItemClick(Art item);
     }
 }
-

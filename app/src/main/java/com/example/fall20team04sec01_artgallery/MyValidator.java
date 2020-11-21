@@ -40,8 +40,8 @@ public class MyValidator {
 
     public boolean phoneNumberValidate(String phoneNumber){
 
-        if(phoneNumber.length()<=10){
-            Toast.makeText(context,"Invalid Phone Number\nDigits should be greater than 10",Toast.LENGTH_LONG).show();
+        if(phoneNumber.length()<=9){
+            Toast.makeText(context,"Invalid Phone Number\nDigits Length should be 10 or more",Toast.LENGTH_LONG).show();
             return true;
         }
         else
