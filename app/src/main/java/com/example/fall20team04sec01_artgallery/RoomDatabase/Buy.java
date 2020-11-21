@@ -18,12 +18,14 @@ public class Buy {
 
     String buy_date;
     int quantity;
+
     public Buy(int userId, int artId, String buy_date, int quantity) {
         this.userId = userId;
         this.artId = artId;
         this.buy_date = buy_date;
         this.quantity = quantity;
     }
+
     public int getUserId() {
         return userId;
     }
@@ -56,4 +58,3 @@ public class Buy {
         this.quantity = quantity;
     }
 }
-

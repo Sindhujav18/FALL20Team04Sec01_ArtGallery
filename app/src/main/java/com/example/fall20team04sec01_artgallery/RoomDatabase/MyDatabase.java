@@ -12,3 +12,5 @@ public abstract class MyDatabase extends RoomDatabase {
     public abstract PurchaseDAO purchaseDAO();
     public abstract FavouriteDAO favouriteDAO();
 }
+
+

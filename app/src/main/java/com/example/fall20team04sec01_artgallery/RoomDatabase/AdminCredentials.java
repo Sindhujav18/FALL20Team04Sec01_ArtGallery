@@ -7,8 +7,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class AdminCredentials {
 
-    @PrimaryKey
-    @NonNull
+    @PrimaryKey @NonNull
     String email;
 
     String password;
@@ -17,6 +16,7 @@ public class AdminCredentials {
         this.email = email;
         this.password = password;
     }
+
     public String getEmail() {
         return email;
     }

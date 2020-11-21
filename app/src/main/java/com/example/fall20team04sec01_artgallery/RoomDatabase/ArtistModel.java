@@ -7,11 +7,10 @@ import androidx.room.PrimaryKey;
 @Entity()
 public class ArtistModel {
 
-    @PrimaryKey
-    @NonNull
+    @PrimaryKey @NonNull
     String email;
 
-    String name, phoneNumber, country;
+    String name,phoneNumber,country;
 
     public ArtistModel(String name, String email, String phoneNumber, String country) {
         this.name = name;
@@ -19,6 +18,7 @@ public class ArtistModel {
         this.phoneNumber = phoneNumber;
         this.country = country;
     }
+
     public String getName() {
         return name;
     }
@@ -51,4 +51,3 @@ public class ArtistModel {
         this.country = country;
     }
 }
-
