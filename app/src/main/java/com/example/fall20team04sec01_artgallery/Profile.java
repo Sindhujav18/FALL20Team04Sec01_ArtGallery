@@ -4,21 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Profile#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Profile extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
     public Profile() {
         // Required empty public constructor
     }
@@ -40,7 +30,19 @@ public class Profile extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_user_details, container, false);
+        View inflated = inflater.inflate(R.layout.activity_user_details, container, false);
+
+        TextView name = inflated.findViewById(R.id.user_name);
+        TextView email = inflated.findViewById(R.id.user_email_id);
+        TextView phoneNumber = inflated.findViewById(R.id.user_phone_no);
+        TextView country = inflated.findViewById(R.id.user_country);
+
+        name.setText(UserState.getUser().getName());
+        email.setText(UserState.getUser().getEmail());
+        phoneNumber.setText(UserState.getUser().getPhoneNumber());
+
+        country.setText(UserState.getUser().getAddress());
+
+        return inflated;
     }
 }
