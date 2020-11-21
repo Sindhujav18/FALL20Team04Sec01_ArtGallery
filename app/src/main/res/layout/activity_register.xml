@@ -104,8 +104,7 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:padding="10dp"
-            android:hint="Address"
-            android:inputType="textPassword" />
+            android:hint="Address" />
     </LinearLayout>
 
     <Button
