@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fall20team04sec01_artgallery">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,15 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminDashboardActivity"></activity>
+        <activity android:name=".ForgotPassword.OTPPassword"></activity>
+        <activity android:name=".UploadArtLists.SelectArtist" />
+        <activity android:name=".AdminDashboardActivity" />
         <activity android:name=".SearchFragment" />
         <activity android:name=".CategoryFragment" />
         <activity android:name=".AddToBagFragment" />
+        <activity android:name=".ForgotPassword.ForgotPassword" />
         <activity android:name=".PaymentFragment" />
         <activity android:name=".upload_art" />
         <activity android:name=".GalleryFragment" />
         <activity android:name=".item_billing_address" />
-        <activity android:name=".MyCartFragment" />
+        <activity android:name=".CartFragment" />
         <activity android:name=".HomeFragment" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".Addresses" />
