@@ -9,34 +9,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.926"
-        tools:layout_editor_absoluteX="0dp">
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="@color/colorPrimaryDark"
-        android:foreground="?attr/selectableItemBackground"
-        app:itemIconTint="@color/light_gray"
-        app:itemTextColor="@color/light_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/navigation"
-        tools:layout_editor_absoluteX="16dp" />
-
     <Button
         android:id="@+id/asiaBtn"
         android:layout_width="247dp"
