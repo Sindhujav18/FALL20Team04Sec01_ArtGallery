@@ -132,12 +132,14 @@
                 android:textAppearance="?android:textAppearance"
                 android:textStyle="bold" />
 
-
-            <view class="androidx.appcompat.app.AlertController$RecycleListView"
-                android:id="@+id/recycler_view"
+            <ListView
+                android:id="@+id/chosenItems_lv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
+                android:layout_height="300dp"
+                android:paddingLeft="@dimen/margin_20"
+                android:paddingTop="@dimen/margin_10"
+                android:paddingRight="@dimen/margin_10"
+                android:paddingBottom="@dimen/margin_10" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -153,8 +155,14 @@
                 android:textAppearance="?android:textAppearance"
                 android:textStyle="bold" />
 
-
-            <include layout="@layout/activity_item_billing_address" />
+            <TextView
+                android:id="@+id/billingAddress_tv"
+                android:layout_width="wrap_content"
+                android:paddingLeft="@dimen/margin_20"
+                android:paddingTop="@dimen/margin_10"
+                android:paddingRight="@dimen/margin_10"
+                android:paddingBottom="@dimen/margin_10"
+                android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/confirm_details"
