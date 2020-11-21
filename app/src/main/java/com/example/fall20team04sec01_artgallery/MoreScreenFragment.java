@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -14,21 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 public class MoreScreenFragment extends Fragment {
-
-    ListView list;
     private OnNavigationRequestedListener listener;
-
-    String[] maintitle = {
-            "Profile", "Password",
-            "Addresses", "Currency",
-            "Favourities", "Orders", "Log Out"
-    };
-
-    Integer[] imgid={
-            R.drawable.ic_profile_black_24dp,R.drawable.ic_password,
-            R.drawable.ic_add,R.drawable.ic_add,
-            R.drawable.ic_add,R.drawable.shopping_bag,R.drawable.ic_add
-    };
 
     public MoreScreenFragment() {
         // Required empty public constructor
@@ -52,65 +39,57 @@ public class MoreScreenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View inflated = inflater.inflate(R.layout.more_screen_fragment, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_more_screen_fragment, container, false);
-        MyListAdapter adapter=new MyListAdapter((Activity) getContext(), maintitle,imgid);
-        list=(ListView)view.findViewById(R.id.MoreScreenList);
-        list.setAdapter(adapter);
+        LinearLayout profile = inflated.findViewById(R.id.profile_lv);
+        LinearLayout password = inflated.findViewById(R.id.passwords_lv);
+        LinearLayout orders = inflated.findViewById(R.id.orders_lv);
+        LinearLayout favourites = inflated.findViewById(R.id.favourites_lv);
+        LinearLayout logout = inflated.findViewById(R.id.logout_lv);
 
 
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-                // TODO Auto-generated method stub
-                if(position == 0) {
-                    //code specific to first list item
-                    listener.onNavigationRequested(R.layout.activity_user_details);
-                    Toast.makeText(getContext(),"Profile",Toast.LENGTH_SHORT).show();
-                }
-
-                else if(position == 1) {
-                    //code specific to 2nd list item
-                    listener.onNavigationRequested(R.layout.activity_forgot_password);
-                    Toast.makeText(getContext(),"Password",Toast.LENGTH_SHORT).show();
-                }
-
-                else if(position == 2) {
-
-                    listener.onNavigationRequested(R.layout.activity_item_billing_address);
-                    Toast.makeText(getContext(),"Addresses",Toast.LENGTH_SHORT).show();
-                }
-                else if(position == 3) {
-
-                    listener.onNavigationRequested(R.layout.activity_payment);
-                    Toast.makeText(getContext(),"Currency",Toast.LENGTH_SHORT).show();
-                }
-                else if(position == 4) {
-
-                    listener.onNavigationRequested(R.layout.activity_register);
-                    Toast.makeText(getContext(),"Favourities",Toast.LENGTH_SHORT).show();
-                }
-                else if(position == 5) {
-
-                    listener.onNavigationRequested(R.layout.activity_my_cart);
-                    Toast.makeText(getContext(),"Orders",Toast.LENGTH_LONG).show();
-                }
-                else if(position == 6){
-
-                    listener.onNavigationRequested(R.layout.fragment_login);
-                    Toast.makeText(getContext(),"Log Out",Toast.LENGTH_LONG).show();
-                }
-
+            public void onClick(View view) {
+                listener.onNavigationRequested(R.layout.activity_user_details);
             }
         });
 
-        return view;
+        password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onNavigationRequested(R.layout.activity_forgot_password);
+            }
+        });
+
+        orders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onNavigationRequested(R.layout.fragment_purchases);
+            }
+        });
+
+        favourites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onNavigationRequested(R.layout.fragment_favourite_arts);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onLogoutSignalled();
+            }
+        });
+
+        return inflated;
     }
 
 
     public interface OnNavigationRequestedListener {
         public void onNavigationRequested(int fragmentLayoutId);
+        public void onLogoutSignalled();
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.example.fall20team04sec01_artgallery;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -11,9 +10,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.fall20team04sec01_artgallery.RoomDatabase.Art;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity implements GalleryFragment.OnNavigationRequestedListener, HomeFragment.OnNavigationRequestedListener, AddToBagFragment.OnNavigationRequestedListener, MyCartFragment.OnNavigationRequestedListener, PaymentFragment.OnNavigationRequestedListener,MoreScreenFragment.OnNavigationRequestedListener {
+public class MainActivity extends AppCompatActivity implements GalleryFragment.OnNavigationRequestedListener, HomeFragment.OnNavigationRequestedListener, AddToBagFragment.OnNavigationRequestedListener, CartFragment.OnNavigationRequestedListener, PaymentFragment.OnNavigationRequestedListener,MoreScreenFragment.OnNavigationRequestedListener {
+
+    static public  Art artitem;
+    static public String region;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements GalleryFragment.O
         HomeFragment fragment = HomeFragment.newInstance();
         fragmentTransaction.add(R.id.main_frame, fragment);
         fragmentTransaction.commit();
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements GalleryFragment.O
                     fragmentTransaction.commit();
                     return true;
                 case R.id.navigation_cart:
-                    fragmentTransaction.replace(R.id.main_frame, MyCartFragment.newInstance());
+                    fragmentTransaction.replace(R.id.main_frame, CartFragment.newInstance(artitem));
                     fragmentTransaction.commit();
                     return true;
                 case R.id.navigation_profile:
@@ -83,19 +88,19 @@ public class MainActivity extends AppCompatActivity implements GalleryFragment.O
 
         switch (fragmentLayoutId){
             case R.layout.activity_gallery:
-                targetFragment = GalleryFragment.newInstance();
+                targetFragment = GalleryFragment.newInstance(region);
                 break;
             case  R.layout.activity_add_to_bag:
-                targetFragment = AddToBagFragment.newInstance();
+                targetFragment = AddToBagFragment.newInstance(artitem);
                 break;
 
             case  R.layout.activity_my_cart:
-                targetFragment = MyCartFragment.newInstance();
+                targetFragment = CartFragment.newInstance(artitem);
                 break;
             case  R.layout.activity_payment:
                 targetFragment = PaymentFragment.newInstance();
                 break;
-            case R.layout.fragment_more_screen_fragment:
+            case R.layout.more_screen_fragment:
                 targetFragment = MoreScreenFragment.newInstance();
                 break;
             case R.layout.activity_user_details:
@@ -113,11 +118,31 @@ public class MainActivity extends AppCompatActivity implements GalleryFragment.O
             case R.layout.fragment_login:
                 targetFragment = LogOut.newInstance();
                 break;
+            case R.layout.fragment_purchases:
+                targetFragment = PurchasesFragment.newInstance();
+                break;
 
+            case R.layout.fragment_favourite_arts:
+                targetFragment = FavouriteArtsFragment.newInstance();
+                break;
         }
-
 
         fragmentTransaction.add(R.id.main_frame, targetFragment).addToBackStack(null);
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onLogoutSignalled() {
+        finish();
+    }
+
+    public void artSelectedItem(Art art)
+    {
+        artitem = art;
+    }
+
+    public void regionSelected(String regionName)
+    {
+        region = regionName;
     }
 }
