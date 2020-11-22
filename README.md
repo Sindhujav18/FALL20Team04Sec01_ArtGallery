@@ -35,3 +35,4 @@ ArtGallery app allows users to buy different kinds of paintings and photographs 
 ## ER Diagram :
 
 ![](https://github.com/Sindhujav18/FALL20Team04Sec01_ArtGallery/blob/master/ER%20diagram.jpeg?raw=true)
+
