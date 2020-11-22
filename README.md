@@ -43,3 +43,5 @@ https://github.com/Sindhujav18/FALL20Team04Sec01_ArtGallery/blob/master/artgalle
 ## Supported Devices :
 
 - Android devices and Android studio with version 1.8.0 or greater
+
+## 
