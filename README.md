@@ -1,6 +1,6 @@
 # FALL20Team04Sec01_ArtGallery
 
-# Art Gallery
+# ArtGallery
 
 ## Group Members :
 
@@ -44,4 +44,11 @@ https://github.com/Sindhujav18/FALL20Team04Sec01_ArtGallery/blob/master/artgalle
 
 - Android devices and Android studio with version 1.8.0 or greater
 
-## 
+## App Name and Logo :
+
+ArtGallery
+
+![](https://github.com/Sindhujav18/FALL20Team04Sec01_ArtGallery/blob/master/app%20logo.jpeg?raw=true)
+
+## Sequence of the application :
+
