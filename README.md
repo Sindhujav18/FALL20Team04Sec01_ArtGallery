@@ -38,7 +38,7 @@ ArtGallery app allows users to buy different kinds of paintings and photographs 
 
 ## APK file :
 
-https://github.com/Sindhujav18/FALL20Team04Sec01_ArtGallery/blob/master/artgallery-debug.apk
+https://github.com/Sindhujav18/FALL20Team04Sec01_ArtGallery/blob/master/app-debug.apk
 
 ## Supported Devices :
 
