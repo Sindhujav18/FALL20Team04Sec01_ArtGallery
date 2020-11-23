@@ -30,6 +30,7 @@ public class ForgotPassword extends AppCompatActivity {
         setContentView(R.layout.activity_forgot_password);
 
         emailEditText = findViewById(R.id.email_edit_text);
+
         myDatabase = Room.databaseBuilder(ForgotPassword.this,MyDatabase.class,"UserDb")
                 .allowMainThreadQueries().build();
 
@@ -60,4 +61,3 @@ public class ForgotPassword extends AppCompatActivity {
         finish();
     }
 }
-

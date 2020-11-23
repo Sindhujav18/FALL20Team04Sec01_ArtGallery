@@ -1,9 +1,14 @@
 package com.example.fall20team04sec01_artgallery;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.room.Room;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +27,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity {
     Button loginBtn;
     TextView registerTV,forgotpasswordTV, adminloginTV;
-
+    private static final int REQUEST = 112;
     EditText email,password;
     MyDatabase myDatabase;
 
@@ -39,10 +44,21 @@ public class LoginActivity extends AppCompatActivity {
 
         final String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+        if (Build.VERSION.SDK_INT >= 23) {
+            String[] PERMISSIONS = {android.Manifest.permission.READ_EXTERNAL_STORAGE,android.Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            if (!hasPermissions(LoginActivity.this, PERMISSIONS)) {
+                ActivityCompat.requestPermissions((Activity) this, PERMISSIONS, REQUEST );
+            } else {
+                //do here
+            }
+        } else {
+            //do here
+        }
+
         myDatabase = Room.databaseBuilder(LoginActivity.this,MyDatabase.class,"UserDb")
                 .allowMainThreadQueries().build();
 
-        adminInsertion();
+        defaultAdminAndUserInsertion();
 
         registerTV.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -94,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void adminInsertion()
+    public void defaultAdminAndUserInsertion()
     {
         try {
 
@@ -104,11 +120,27 @@ public class LoginActivity extends AppCompatActivity {
                 Log.e("DB message : ", message + "");
 
             }
+
+            if(myDatabase.dao().checkEmail("default@gmail.com").size()<=0){
+                UserModel user = new UserModel("Default User", "default@gmail.com", "123445677654", "1234567","Street Something USA");
+                myDatabase.dao().UserInsertion(user);
+            }
         }
         catch (Exception database){
 
             Toast.makeText(getApplicationContext(),database.getMessage(),Toast.LENGTH_LONG).show();
 
         }
+    }
+
+    private static boolean hasPermissions(Context context, String... permissions) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
+            for (String permission : permissions) {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

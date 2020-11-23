@@ -22,7 +22,6 @@ import com.example.fall20team04sec01_artgallery.RoomDatabase.MyDatabase;
 
 import java.util.Random;
 
-import java.util.Random;
 
 public class OTPPassword extends AppCompatActivity {
 

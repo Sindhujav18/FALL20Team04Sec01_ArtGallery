@@ -1,7 +1,5 @@
 package com.example.fall20team04sec01_artgallery.CartListView;
 
-
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

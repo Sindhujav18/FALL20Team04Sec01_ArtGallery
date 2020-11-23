@@ -65,6 +65,7 @@ public class SearchFragment extends Fragment {
         myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class,"UserDb")
                 .allowMainThreadQueries().build();
 
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

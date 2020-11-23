@@ -1,6 +1,8 @@
 package com.example.fall20team04sec01_artgallery.GalleryFragmentGridView;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fall20team04sec01_artgallery.R;
 import com.example.fall20team04sec01_artgallery.RoomDatabase.Art;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -53,7 +56,16 @@ public class ArtListRecyclerViewAdapter extends RecyclerView.Adapter<ArtListRecy
 
             Log.e("Data set : ",item.getName()+""+Uri.parse(item.getImagesPath().get(0)));
             textView.setText(item.getName().toUpperCase());
-            imageView.setImageURI(Uri.parse(item.getImagesPath().get(0)));
+
+            File imgFile = new File(item.getImagesPath().get(0));
+
+            if(imgFile.exists()){
+
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                imageView.setImageBitmap(myBitmap);
+            }
+
+//            imageView.setImageURI(Uri.parse(item.getImagesPath().get(0)));
 
         }
 

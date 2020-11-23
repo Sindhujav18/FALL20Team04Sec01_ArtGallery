@@ -5,10 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +30,11 @@ import com.example.fall20team04sec01_artgallery.RoomDatabase.Art;
 import com.example.fall20team04sec01_artgallery.RoomDatabase.MyDatabase;
 import com.example.fall20team04sec01_artgallery.UploadArtLists.SelectArtist;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 
 public class upload_art extends AppCompatActivity{
@@ -182,11 +195,9 @@ public class upload_art extends AppCompatActivity{
 
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
 
         if(requestCode==IMAGE_PickCode && data!=null)
         {
@@ -195,15 +206,15 @@ public class upload_art extends AppCompatActivity{
             switch(currentRequestOfImage){
                 case 1:
                     imageButton1.setImageURI(selectedImageUri);
-                    imagesPath.set(0,selectedImageUri.toString());
+                    imagesPath.set(0,getRealPathFromURI(selectedImageUri));
                     break;
                 case 2:
                     imageButton2.setImageURI(selectedImageUri);
-                    imagesPath.set(1,selectedImageUri.toString());
+                    imagesPath.set(1,getRealPathFromURI(selectedImageUri));
                     break;
                 case 3:
                     imageButton3.setImageURI(selectedImageUri);
-                    imagesPath.set(2,selectedImageUri.toString());
+                    imagesPath.set(2,getRealPathFromURI(selectedImageUri));
                     break;
             }
 
@@ -257,4 +268,21 @@ public class upload_art extends AppCompatActivity{
             }
         }
     }
+
+    private String getRealPathFromURI(Uri contentURI) {
+        String result;
+        Cursor cursor = getContentResolver().query(contentURI, null, null, null, null);
+        if (cursor == null) { // Source is Dropbox or other similar local file path
+            result = contentURI.getPath();
+        } else {
+            cursor.moveToFirst();
+            int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+            result = cursor.getString(idx);
+            cursor.close();
+        }
+        return result;
+    }
+
+
+
 }

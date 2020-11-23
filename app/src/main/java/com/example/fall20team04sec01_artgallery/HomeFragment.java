@@ -30,7 +30,6 @@ public class HomeFragment extends Fragment {
     private Button asiaGallary, africaGallary, europeGallary;
     private OnNavigationRequestedListener listener;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,22 +47,26 @@ public class HomeFragment extends Fragment {
         africaGallary = inflated.findViewById(R.id.africaBtn);
         europeGallary = inflated.findViewById(R.id.europeBtn);
 
+        final MainActivity mainActivity = new MainActivity();
 
         asiaGallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mainActivity.regionSelected("ASIA");
                 listener.onNavigationRequested(R.layout.activity_gallery);
             }
         });
         africaGallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mainActivity.regionSelected("EUROPE");
                 listener.onNavigationRequested(R.layout.activity_gallery);
             }
         });
         europeGallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mainActivity.regionSelected("AFRICA");
                 listener.onNavigationRequested(R.layout.activity_gallery);
             }
         });

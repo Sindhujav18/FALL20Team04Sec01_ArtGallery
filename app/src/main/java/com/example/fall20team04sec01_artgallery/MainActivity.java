@@ -80,8 +80,6 @@ public class MainActivity extends AppCompatActivity implements GalleryFragment.O
         }
     }
 
-
-
     public void onNavigationRequested(int fragmentLayoutId) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

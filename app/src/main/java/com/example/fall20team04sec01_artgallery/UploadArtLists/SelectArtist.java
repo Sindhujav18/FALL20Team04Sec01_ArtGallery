@@ -26,6 +26,7 @@ public class SelectArtist extends AppCompatActivity {
     ArrayList<String> email;
     ArrayList<String> country;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +55,8 @@ public class SelectArtist extends AppCompatActivity {
             }
         });
     }
+
+
     public void setList()
     {
         try{
@@ -88,5 +91,3 @@ public class SelectArtist extends AppCompatActivity {
 
 
 }
-
-
