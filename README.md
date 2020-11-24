@@ -24,9 +24,9 @@ password: 1234567
 
 For user login :
 
-username: valeti@gmail.com
+username: default@gmail.com
 
-password: Valeti@09
+password: 1234567
 
 ## Description :
 
