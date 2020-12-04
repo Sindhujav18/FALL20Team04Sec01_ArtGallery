@@ -24,9 +24,9 @@ password: 1234567
 
 For user login :
 
-username: valeti@gmail.com
+username: default@gmail.com
 
-password: Valeti@09
+password: 1234567
 
 ## Description :
 
@@ -38,7 +38,7 @@ ArtGallery app allows users to buy different kinds of paintings and photographs 
 
 ## APK file :
 
-https://github.com/Sindhujav18/FALL20Team04Sec01_ArtGallery/blob/master/artgallery-debug.apk
+https://github.com/Sindhujav18/FALL20Team04Sec01_ArtGallery/blob/master/app-debug.apk
 
 ## Supported Devices :
 
